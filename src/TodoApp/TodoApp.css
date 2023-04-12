@@ -1,0 +1,12 @@
+.list-items{
+    width: 80%;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #dbdfe4;
+  flex-direction: column;
+}

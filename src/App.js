@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";
+import { CarouselApi } from './CarouselApi';
+import { ShoppingCart } from './ShoppingCart';
+import { TodoApp } from './TodoApp';
+
 
 function App() {
+  const [activeC, setActiveC] = useState("CarouselApi");
+
+  const componentes = {
+    TodoApp: <TodoApp />,
+    CarouselApi: <CarouselApi />,
+    ShoppingCart: <ShoppingCart />,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <button onClick={() => setActiveC("TodoApp")}>Todo List</button>
+        <button onClick={() => setActiveC("CarouselApi")}>Carousel</button>
+        <button onClick={() => setActiveC("ShoppingCart")}>
+          Shopping Cart
+        </button>
       </header>
+      <div>{componentes[activeC]}</div>
     </div>
   );
 }
