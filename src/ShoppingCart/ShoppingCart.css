@@ -1,0 +1,16 @@
+.ropa{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    align-items: center;
+}
+
+.ropa img{
+    width: 200px;
+    height: 200px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
