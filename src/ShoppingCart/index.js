@@ -1,47 +1,16 @@
 import React from "react";
 import "./ShoppingCart.css";
+import { ContentStore } from "./content-store/ContentStore";
+import { Header } from "./Header/Header";
+import { Sidebar } from "./Sidebar/Sidebar";
 
 function ShoppingCart() {
   return (
     <React.Fragment>
-      <h1>Carrito de compras</h1>
-      <div className="container">
-        <div className="ropa">
-          <h2>Producto</h2>
-          <img
-            src="https://tottoco.vteximg.com.br/arquivos/ids/172991/DOWN-ML-H-1720-4LG_A.png?v=636492819456730000"
-            alt="no funciona"
-          />
-
-          <button>Comprar</button>
-        </div>
-        <div className="ropa">
-          <h2>Producto</h2>
-          <img
-            src="https://tottoco.vteximg.com.br/arquivos/ids/172991/DOWN-ML-H-1720-4LG_A.png?v=636492819456730000"
-            alt="no funciona"
-          />
-
-          <button>Comprar</button>
-        </div>
-        <div className="ropa">
-          <h2>Producto</h2>
-          <img
-            src="https://tottoco.vteximg.com.br/arquivos/ids/172991/DOWN-ML-H-1720-4LG_A.png?v=636492819456730000"
-            alt="no funciona"
-          />
-
-          <button>Comprar</button>
-        </div>
-        <div className="ropa">
-          <h2>Producto</h2>
-          <img
-            src="https://tottoco.vteximg.com.br/arquivos/ids/172991/DOWN-ML-H-1720-4LG_A.png?v=636492819456730000"
-            alt="no funciona"
-          />
-
-          <button>Comprar</button>
-        </div>
+      <Header/>
+      <div className="content">
+      <Sidebar/>
+      <ContentStore/>
       </div>
     </React.Fragment>
   );

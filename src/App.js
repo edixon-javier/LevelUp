@@ -6,7 +6,7 @@ import { TodoApp } from './TodoApp';
 
 
 function App() {
-  const [activeC, setActiveC] = useState("CarouselApi");
+  const [activeC, setActiveC] = useState("ShoppingCart");
 
   const componentes = {
     TodoApp: <TodoApp />,

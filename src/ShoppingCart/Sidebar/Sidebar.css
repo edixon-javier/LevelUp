@@ -1,0 +1,14 @@
+.sidebar-wrapper {
+  width: 250px;
+  background-color: lavender;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-wrapper h2 {
+  margin-left: 20px;
+}
+
+.sidebar-wrapper span {
+  margin-left: 20px;
+}
