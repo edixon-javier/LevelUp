@@ -7,10 +7,10 @@ import { Sidebar } from "./Sidebar/Sidebar";
 function ShoppingCart() {
   return (
     <React.Fragment>
-      <Header/>
+      <Header />
       <div className="content">
-      <Sidebar/>
-      <ContentStore/>
+        <Sidebar className="sidebar" />
+        <ContentStore />
       </div>
     </React.Fragment>
   );

@@ -16,31 +16,14 @@ function ExtractApi() {
     setImg((img - 1 + cantImg) % cantImg);
   };
 
-  function imageneanterior(item){
-    return (img - 1 + cantImg) % cantImg;
-  }
-  
-  function imagenSiguiente(item){
-    return (img + 1 + cantImg) % cantImg;
-  }
-
-  // function vamosLocas3(item){
-  //   return (img + 1) % cantImg;
-  // }
-
-
-  // console.log("1",vamosLocas2());  
-  // console.log("2",img);
-  // console.log("2",vamosLocas());
-
-
-                    // src={data[(img - 1 + cantImg) % cantImg]?.image}
 
   useEffect(() => {
     const fetchData = async () => {
       const newData = [];
       const resp = await fetch(
         `https://rickandmortyapi.com/api/character/${cantPerson}`
+      ).catch((error) =>
+        console.log("Authorization failed : " + error.message)
       );
       const json = await resp.json();
       newData.push(json);
