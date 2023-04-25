@@ -5,12 +5,14 @@ import { Loanding } from "../Loanding/Loading";
 
 function ContentStore() {
   const { data, uLoanding } = useFetch(
-    "https://free-to-play-games-database.p.rapidapi.com/api/games"
+    "https://free-to-play-games-database.p.rapidapi.com/api/games?platform=browser&category=mmorpg&sort-by=release-date"
   );
-console.log(data);
+  console.log(data);
   return (
     <div className="container">
-      {uLoanding ? <Loanding/> :
+      {uLoanding ? (
+        <Loanding />
+      ) : (
         data.map((dat, index) => {
           return (
             <div className="clothing" key={index}>
@@ -19,7 +21,8 @@ console.log(data);
               <button>Comprar</button>
             </div>
           );
-        })}
+        })
+      )}
     </div>
   );
 }

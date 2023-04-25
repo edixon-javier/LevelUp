@@ -6,6 +6,7 @@ export function useFetch(url) {
   const options = {
     method: "GET",
     headers: {
+      "content-type": "application/octet-stream",
       "X-RapidAPI-Key": "e2f0fa47f1mshcd4c29938670ea1p13f620jsn646665d010a3",
       "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
     },
@@ -16,6 +17,7 @@ export function useFetch(url) {
     fetch(url, options)
       .then((response) => response.json())
       .then((response) => {
+        console.log(response);
         setData(response);
       })
       .finally(() => setLoanding(false))
