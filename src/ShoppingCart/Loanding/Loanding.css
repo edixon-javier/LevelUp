@@ -1,0 +1,42 @@
+
+.item-loading{
+  align-items: center;
+  margin-left: 780px;
+}
+
+.LoaderBalls {
+  margin: auto;
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LoaderBalls__item {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2e3030;
+}
+
+.LoaderBalls__item:nth-child(1) {
+  animation: opacitychange 1s ease-in-out 0.66s infinite;
+}
+.LoaderBalls__item:nth-child(2) {
+  animation: opacitychange 1s ease-in-out infinite;
+}
+
+.LoaderBalls__item:nth-child(3) {
+  animation: opacitychange 1s ease-in-out 0.33s infinite;
+}
+
+
+@keyframes opacitychange {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+}

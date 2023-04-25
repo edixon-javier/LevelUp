@@ -1,19 +1,19 @@
 .container {
-  align-items: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  /* flex-direction: row; */
+  align-items: center;
 }
 
 .clothing {
   text-align: center;
   flex-direction: column;
   align-items: center;
+  margin: 15px;
+
 }
 
 .clothing img {
-  margin: 20px;
   width: 100%;
   border-radius: 10px;
 }
