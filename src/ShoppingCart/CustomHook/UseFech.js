@@ -17,12 +17,11 @@ export function useFetch(url) {
     fetch(url, options)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setData(response);
       })
       .finally(() => setLoanding(false))
       .catch((err) => console.error(err));
-  }, []);
+  }, [url]);
 
   return { data, uLoanding };
 }
