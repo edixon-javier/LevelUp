@@ -8,13 +8,12 @@ import { CartProducts } from "../CartProducts/CartProducts";
 
 function RoutesStore() {
   const [allgames, setAllGames] = useState([]);
-  // const [total, setTotal] = useState(0);
-  // const [countProducts, setCountProducts] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
 
   return (
     <>
       <HashRouter>
-        <Header />
+        <Header countProducts={countProducts} />
         <div className="content">
           <Sidebar
             className="sidebar"
@@ -26,13 +25,21 @@ function RoutesStore() {
             <Route
               path="/:id"
               element={
-                <ContentStore allgames={allgames} setAllGames={setAllGames} />
+                <ContentStore
+                  allgames={allgames}
+                  setAllGames={setAllGames}
+                  setCountProducts={setCountProducts}
+                />
               }
             ></Route>
             <Route
               path="/shopping-cart"
               element={
-                <CartProducts allgames={allgames} setAllGames={setAllGames} />
+                <CartProducts
+                  allgames={allgames}
+                  setAllGames={setAllGames}
+                  setCountProducts={setCountProducts}
+                />
               }
             ></Route>
             <Route path="*" element={<p>Cuando no funcione</p>}></Route>

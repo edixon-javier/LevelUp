@@ -7,9 +7,6 @@ import { Link, useParams } from "react-router-dom";
 function ContentStore({
   allgames,
   setAllGames,
-  total,
-  setTotal,
-  countProducts,
   setCountProducts,
 }) {
   const { id } = useParams("Anime");
@@ -18,11 +15,12 @@ function ContentStore({
 
   const onAddGames = (product) => {
     setAllGames([...allgames, product]);
+    setCountProducts(allgames.length + 1);
   };
 
   return (
     <>
-      {!uLoanding ? (
+      {uLoanding ? (
         <Loanding />
       ) : (
         <div className="container">

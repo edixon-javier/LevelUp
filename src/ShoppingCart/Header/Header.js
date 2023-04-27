@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({countProducts}) {
   return (
     <nav>
       <ul>
-        {routes.map((route, index) => (
-          <li key={index}>
-            <Link to={route.to}>{route.text}</Link>
-          </li>
-        ))}
+        <li>
+          <Link to={"/Home"}>Home</Link>
+        </li>
+        <li>
+          <Link to={"/shopping-cart"}>🛒{countProducts}</Link>
+        </li>
       </ul>
     </nav>
   );
@@ -22,7 +23,7 @@ const routes = [
   },
   {
     to: "/shopping-cart",
-    text: "carrito",
+    text: "Carrito",
   },
 ];
 
