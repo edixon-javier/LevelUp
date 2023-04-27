@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -17,17 +17,15 @@ function Header() {
 }
 const routes = [
   {
-    to: "/",
+    to: "/Home",
     text: "Home",
   },
   {
-    to: "/card",
+    to: "/shopping-cart",
     text: "carrito",
   },
 ];
 
-routes.push(
-  
-);
+routes.push();
 
 export { Header };

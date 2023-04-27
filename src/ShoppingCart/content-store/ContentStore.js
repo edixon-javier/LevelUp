@@ -1,31 +1,48 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./ContentStore.css";
 import { useFetch } from "../CustomHook/useFech";
 import { Loanding } from "../Loanding/Loading";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-function ContentStore() {
+function ContentStore({
+  allgames,
+  setAllGames,
+  total,
+  setTotal,
+  countProducts,
+  setCountProducts,
+}) {
   const { id } = useParams("Anime");
-  const { data, uLoanding } = useFetch(
-    `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${id}`,
-    [id]
-  );
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${id}`;
+  const { data, uLoanding } = useFetch(url, [id]);
+
+  const onAddGames = (product) => {
+    setAllGames([...allgames, product]);
+  };
+
   return (
-    <div className="container">
-      {uLoanding ? (
+    <>
+      {!uLoanding ? (
         <Loanding />
       ) : (
-        data.map((dat, index) => {
-          return (
-            <div className="clothing" key={dat.id}>
-              <h2>{dat.title}</h2>
-              <img src={dat.thumbnail} alt="no funciona" />
-              <button>Comprar</button>
-            </div>
-          );
-        })
+        <div className="container">
+          {data.map((dat) => {
+            return (
+              <div className="clothing" key={dat.id}>
+                <img src={dat.thumbnail} alt="no funciona" />
+                <h2>{dat.title}</h2>
+                <div className="buttons">
+                  <button onClick={() => onAddGames(dat)}>
+                    <Link to={"/shopping-cart"}>Comprar</Link>
+                  </button>
+                  <button onClick={() => onAddGames(dat)}>🛒</button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 

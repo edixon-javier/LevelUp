@@ -9,10 +9,7 @@ function Sidebar(props) {
       <ul>
         <li>
           {routes.map((route, index) => (
-            <Link
-              key={index}
-              to={route.to}
-            >
+            <Link key={index} to={route.to}>
               {route.text}
             </Link>
           ))}
@@ -53,8 +50,6 @@ const routes = [
   },
 ];
 
-routes.push(
- 
-);
+routes.push();
 
 export { Sidebar };
