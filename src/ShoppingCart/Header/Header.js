@@ -1,8 +1,10 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { TodoContext } from "../ContextStore/ContexStore";
 
-function Header({countProducts}) {
+function Header() {
+  const {countProducts} = React.useContext(TodoContext);
   return (
     <nav>
       <ul>

@@ -5,48 +5,51 @@ import { Header } from "../Header/Header";
 import { Sidebar } from "../Sidebar/Sidebar";
 import "./RoutesStore.css";
 import { CartProducts } from "../CartProducts/CartProducts";
+import { TodoContext } from "../ContextStore/ContexStore";
 
 function RoutesStore() {
-  const [allgames, setAllGames] = useState([]);
-  const [countProducts, setCountProducts] = useState(0);
+  const { allgames, setAllGames, setCountProducts } =
+    React.useContext(TodoContext);
 
   return (
-    <>
-      <HashRouter>
-        <Header countProducts={countProducts} />
-        <div className="content">
-          <Sidebar
-            className="sidebar"
-            allgames={allgames}
-            setAllGames={setAllGames}
-          />
-          <Routes>
-            <Route path="/Home" element={<p>Todo los elementos</p>}></Route>
-            <Route
-              path="/:id"
-              element={
-                <ContentStore
-                  allgames={allgames}
-                  setAllGames={setAllGames}
-                  setCountProducts={setCountProducts}
-                />
-              }
-            ></Route>
-            <Route
-              path="/shopping-cart"
-              element={
-                <CartProducts
-                  allgames={allgames}
-                  setAllGames={setAllGames}
-                  setCountProducts={setCountProducts}
-                />
-              }
-            ></Route>
-            <Route path="*" element={<p>Cuando no funcione</p>}></Route>
-          </Routes>
-        </div>
-      </HashRouter>
-    </>
+    <TodoContext.Consumer>
+      {() => (
+        <HashRouter>
+          <Header />
+          <div className="content">
+            <Sidebar
+              className="sidebar"
+              allgames={allgames}
+              setAllGames={setAllGames}
+            />
+            <Routes>
+              <Route path="/Home" element={<p>Todo los elementos</p>}></Route>
+              <Route
+                path="/:id"
+                element={
+                  <ContentStore
+                    allgames={allgames}
+                    setAllGames={setAllGames}
+                    setCountProducts={setCountProducts}
+                  />
+                }
+              ></Route>
+              <Route
+                path="/shopping-cart"
+                element={
+                  <CartProducts
+                    allgames={allgames}
+                    setAllGames={setAllGames}
+                    setCountProducts={setCountProducts}
+                  />
+                }
+              ></Route>
+              <Route path="*" element={<p>Cuando no funcione</p>}></Route>
+            </Routes>
+          </div>
+        </HashRouter>
+      )}
+    </TodoContext.Consumer>
   );
 }
 
