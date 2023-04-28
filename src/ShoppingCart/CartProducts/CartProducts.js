@@ -1,7 +1,10 @@
 import React from "react";
 import "./CarProducts.css";
+import { TodoContext } from "../ContextStore/ContexStore";
 
-function CartProducts({ allgames, setAllGames, setCountProducts }) {
+function CartProducts() {
+  const { allgames, setAllGames, setCountProducts } = React.useContext(TodoContext)
+ 
   const deleteGame = (id) => {
     const gameIndex = allgames.findIndex((todo) => todo.id === id);
     const newGame = [...allgames];

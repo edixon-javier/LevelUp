@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { ContentStore } from "../content-store/ContentStore";
 import { Header } from "../Header/Header";
@@ -8,42 +8,17 @@ import { CartProducts } from "../CartProducts/CartProducts";
 import { TodoContext } from "../ContextStore/ContexStore";
 
 function RoutesStore() {
-  const { allgames, setAllGames, setCountProducts } =
-    React.useContext(TodoContext);
-
   return (
     <TodoContext.Consumer>
       {() => (
         <HashRouter>
           <Header />
           <div className="content">
-            <Sidebar
-              className="sidebar"
-              allgames={allgames}
-              setAllGames={setAllGames}
-            />
+            <Sidebar />
             <Routes>
               <Route path="/Home" element={<p>Todo los elementos</p>}></Route>
-              <Route
-                path="/:id"
-                element={
-                  <ContentStore
-                    allgames={allgames}
-                    setAllGames={setAllGames}
-                    setCountProducts={setCountProducts}
-                  />
-                }
-              ></Route>
-              <Route
-                path="/shopping-cart"
-                element={
-                  <CartProducts
-                    allgames={allgames}
-                    setAllGames={setAllGames}
-                    setCountProducts={setCountProducts}
-                  />
-                }
-              ></Route>
+              <Route path="/:id" element={<ContentStore />}></Route>
+              <Route path="/shopping-cart" element={<CartProducts />}></Route>
               <Route path="*" element={<p>Cuando no funcione</p>}></Route>
             </Routes>
           </div>

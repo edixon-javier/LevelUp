@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
-function Sidebar(props) {
+function Sidebar() {
   return (
     <nav>
       <h4>Categories</h4>

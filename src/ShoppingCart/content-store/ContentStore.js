@@ -9,7 +9,7 @@ function ContentStore() {
   const { onAddGames } = React.useContext(TodoContext);
   const { id } = useParams("Anime");
   const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${id}`;
-  const { data, uLoanding } = useFetch(url, [id]);
+  const { data, uLoanding } = useFetch(url);
 
   return (
     <>
