@@ -16,7 +16,8 @@ function CartProducts({ allgames, setAllGames, setCountProducts }) {
   };
 
   const priceTotal = allgames.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.id,
+    (accumulator, currentValue) =>
+      (accumulator + currentValue.id) * currentValue.quantity,
     0
   );
 
@@ -29,7 +30,7 @@ function CartProducts({ allgames, setAllGames, setCountProducts }) {
         allgames.map((item) => {
           return (
             <div className="carts" key={item.id}>
-              <p>Cantidad: {1} </p>
+              <p>Cantidad: {item.quantity} </p>
               <img src={item.thumbnail} alt="no funciona" />
               <p>{item.title}</p>
               <p>${item.id}</p>
