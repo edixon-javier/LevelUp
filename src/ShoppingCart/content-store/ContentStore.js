@@ -21,7 +21,7 @@ function ContentStore() {
             return (
               <div className="clothing" key={dat.id}>
                 <img src={dat.thumbnail} alt="no funciona" />
-                <h2>{dat.title}</h2>
+                <p>{dat.title}</p>
                 <div className="buttons">
                   <button onClick={() => onAddGames(dat)}>
                     <Link to={"/shopping-cart"}>Comprar</Link>
