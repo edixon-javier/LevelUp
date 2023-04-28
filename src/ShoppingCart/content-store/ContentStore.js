@@ -2,13 +2,13 @@ import React from "react";
 import "./ContentStore.css";
 import { useFetch } from "../CustomHook/useFech";
 import { Loanding } from "../Loanding/Loading";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { TodoContext } from "../ContextStore/ContexStore";
 
 function ContentStore() {
   const { onAddGames } = React.useContext(TodoContext);
-  const { id } = useParams("Anime");
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${id}`;
+  const location = useLocation();
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games${location.search}`;
   const { data, uLoanding } = useFetch(url);
 
   return (
