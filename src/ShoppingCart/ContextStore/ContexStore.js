@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TodoContext = React.createContext();
+const GameContext = React.createContext();
 
 function TodoProvider(props) {
   const [allgames, setAllGames] = useState([]);
@@ -25,7 +25,7 @@ function TodoProvider(props) {
   };
   
   return (
-    <TodoContext.Provider
+    <GameContext.Provider
       value={{
         allgames,
         setAllGames,
@@ -35,8 +35,8 @@ function TodoProvider(props) {
       }}
     >
       {props.children}
-    </TodoContext.Provider>
+    </GameContext.Provider>
   );
 }
 
-export { TodoContext, TodoProvider };
+export { GameContext, TodoProvider };

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { TodoContext } from "../ContextStore/ContexStore";
+import { GameContext } from "../ContextStore/ContexStore";
 
 function Header() {
-  const {countProducts} = React.useContext(TodoContext);
+  const {countProducts} = React.useContext(GameContext);
   return (
     <nav>
       <ul>

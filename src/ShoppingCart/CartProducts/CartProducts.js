@@ -1,9 +1,9 @@
 import React from "react";
 import "./CarProducts.css";
-import { TodoContext } from "../ContextStore/ContexStore";
+import { GameContext } from "../ContextStore/ContexStore";
 
 function CartProducts() {
-  const { allgames, setAllGames, setCountProducts } = React.useContext(TodoContext)
+  const { allgames, setAllGames, setCountProducts } = React.useContext(GameContext)
  
   const deleteGame = (id) => {
     const gameIndex = allgames.findIndex((todo) => todo.id === id);
@@ -17,7 +17,7 @@ function CartProducts() {
     setCountProducts(0);
     setAllGames([]);
   };
-
+  console.log(allgames);
   const priceTotal = allgames.reduce(
     (accumulator, currentValue) =>
       (accumulator + currentValue.id) * currentValue.quantity,
@@ -35,8 +35,14 @@ function CartProducts() {
             <div className="carts" key={item.id}>
               <p>Cantidad: {item.quantity} </p>
               <img src={item.thumbnail} alt="no funciona" />
+              <p>
               <p>{item.title}</p>
-              <p>${item.id}</p>
+               Description:  {item.short_description}
+                </p>
+              <p className="price">
+                <p>Price:</p>
+                ${item.id}
+                </p>
               <button onClick={() => deleteGame(item.id)}>Delete</button>
             </div>
           );

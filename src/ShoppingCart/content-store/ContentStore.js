@@ -3,10 +3,10 @@ import "./ContentStore.css";
 import { useFetch } from "../CustomHook/useFech";
 import { Loanding } from "../Loanding/Loading";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { TodoContext } from "../ContextStore/ContexStore";
+import { GameContext } from "../ContextStore/ContexStore";
 
 function ContentStore() {
-  const { onAddGames } = React.useContext(TodoContext);
+  const { onAddGames } = React.useContext(GameContext);
   const location = useLocation();
   const url = `https://free-to-play-games-database.p.rapidapi.com/api/games${location.search}`;
   const { data, uLoanding } = useFetch(url);
@@ -22,12 +22,8 @@ function ContentStore() {
               <div className="clothing" key={dat.id}>
                 <img src={dat.thumbnail} alt="no funciona" />
                 <p>{dat.title}</p>
-                <div className="buttons">
-                  <button onClick={() => onAddGames(dat)}>
-                    <Link to={"/shopping-cart"}>Comprar</Link>
-                  </button>
-                  <button onClick={() => onAddGames(dat)}>🛒</button>
-                </div>
+                <p>${dat.id}.00</p>
+                <button onClick={() => onAddGames(dat)}>🛒 Add to cart</button>
               </div>
             );
           })}

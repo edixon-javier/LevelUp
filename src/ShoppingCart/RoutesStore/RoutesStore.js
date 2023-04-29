@@ -5,11 +5,11 @@ import { Header } from "../Header/Header";
 import { Sidebar } from "../Sidebar/Sidebar";
 import "./RoutesStore.css";
 import { CartProducts } from "../CartProducts/CartProducts";
-import { TodoContext } from "../ContextStore/ContexStore";
+import { GameContext } from "../ContextStore/ContexStore";
 
 function RoutesStore() {
   return (
-    <TodoContext.Consumer>
+    <GameContext.Consumer>
       {() => (
         <HashRouter>
           <Header />
@@ -19,12 +19,12 @@ function RoutesStore() {
               <Route path="/Home" element={<ContentStore />}></Route>
               <Route path="/:id" element={<ContentStore />}></Route>
               <Route path="/shopping-cart" element={<CartProducts />}></Route>
-              <Route path="*" element={<p>Cuando no funcione</p>}></Route>
+              <Route path="*" element={<p>Esta pagina no existe</p>}></Route>
             </Routes>
           </div>
         </HashRouter>
       )}
-    </TodoContext.Consumer>
+    </GameContext.Consumer>
   );
 }
 
