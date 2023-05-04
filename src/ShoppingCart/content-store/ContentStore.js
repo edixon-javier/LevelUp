@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ContentStore.css";
-import { useFetch } from "../CustomHook/useFech";
 import { Loanding } from "../Loanding/Loading";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
 
 function ContentStore() {
-  const { onAddGames } = React.useContext(GameContext);
+  const { onAddGames, data, uLoanding, setUrlLocation } =
+    React.useContext(GameContext);
   const location = useLocation();
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games${location.search}`;
-  const { data, uLoanding } = useFetch(url);
+
+  useEffect(() => {
+    setUrlLocation(location.search);
+  }, [location.search]);
 
   return (
     <>
