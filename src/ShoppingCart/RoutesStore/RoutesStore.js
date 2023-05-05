@@ -6,6 +6,7 @@ import { Sidebar } from "../Sidebar/Sidebar";
 import "./RoutesStore.css";
 import { CartProducts } from "../CartProducts/CartProducts";
 import { GameContext } from "../ContextStore/ContexStore";
+import { Game } from "../Game/Game";
 
 function RoutesStore() {
   return (
@@ -16,9 +17,13 @@ function RoutesStore() {
           <div className="content">
             <Sidebar />
             <Routes>
-              <Route path="/Home" element={<ContentStore />}></Route>
+              <Route path="/games" element={<ContentStore />}></Route>
               <Route path="/:id" element={<ContentStore />}></Route>
               <Route path="/shopping-cart" element={<CartProducts />}></Route>
+              <Route
+                path="/games/game"
+                element={<Game />}
+              ></Route>
               <Route path="*" element={<p>Esta pagina no existe</p>}></Route>
             </Routes>
           </div>

@@ -17,7 +17,7 @@ function CartProducts() {
     setCountProducts(0);
     setAllGames([]);
   };
-  console.log(allgames);
+
   const priceTotal = allgames.reduce(
     (accumulator, currentValue) =>
       (accumulator + currentValue.id) * currentValue.quantity,

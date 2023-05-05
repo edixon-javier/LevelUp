@@ -9,7 +9,7 @@ function Header() {
     <nav>
       <ul>
         <li>
-          <Link to={"/Home"}>Home</Link>
+          <Link to={"/games"}>Home</Link>
         </li>
         <li>
           <Link to={"/shopping-cart"}>🛒{countProducts}</Link>
@@ -20,7 +20,7 @@ function Header() {
 }
 const routes = [
   {
-    to: "/Home",
+    to: "/games",
     text: "Home",
   },
   {

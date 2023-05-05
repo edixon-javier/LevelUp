@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
 import "./ContentStore.css";
 import { Loanding } from "../Loanding/Loading";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
 
 function ContentStore() {
   const { onAddGames, data, uLoanding, setUrlLocation } =
     React.useContext(GameContext);
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    setUrlLocation(location.search);
-  }, [location.search]);
+    setUrlLocation(location.pathname + location.search);
+  }, [location]);
+
+
+  const redirectGame = (id) => {
+    navigate(`game?id=${id}`);
+  };
 
   return (
     <>
@@ -19,16 +26,26 @@ function ContentStore() {
         <Loanding />
       ) : (
         <div className="container">
-          {data.map((dat) => {
-            return (
-              <div className="clothing" key={dat.id}>
-                <img src={dat.thumbnail} alt="no funciona" />
-                <p>{dat.title}</p>
-                <p>${dat.id}.00</p>
-                <button onClick={() => onAddGames(dat)}>🛒 Add to cart</button>
-              </div>
-            );
-          })}
+          {data && data.length ? (
+            data.map((resp) => {
+              return (
+                <div className="clothing" key={resp.id}>
+                  <img
+                    onClick={() => redirectGame(resp.id)}
+                    src={resp.thumbnail}
+                    alt="no funciona"
+                  />
+                  <p>{resp.title}</p>
+                  <p>${resp.id}.00</p>
+                  <button onClick={() => onAddGames(resp)}>
+                    🛒 Add to cart
+                  </button>
+                </div>
+              );
+            })
+          ) : (
+            <h1>No existe</h1>
+          )}
         </div>
       )}
     </>

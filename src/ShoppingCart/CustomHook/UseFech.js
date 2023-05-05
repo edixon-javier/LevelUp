@@ -11,16 +11,18 @@ export function useFetch(url) {
       "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
     },
   };
-
+  
   useEffect(() => {
     setLoanding(true);
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((response) => {
-        setData(response);
-      })
-      .finally(() => setLoanding(false))
-      .catch((err) => console.error(err));
+    setTimeout(() => {
+      fetch(url, options)
+        .then((response) => response.json())
+        .then((response) => {
+          setData(response);
+        })
+        .finally(() => setLoanding(false))
+        .catch((err) => console.error(err));
+    }, 1000);
   }, [url]);
 
   return { data, uLoanding };

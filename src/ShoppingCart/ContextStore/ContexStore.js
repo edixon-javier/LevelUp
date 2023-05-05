@@ -6,9 +6,8 @@ const GameContext = React.createContext();
 function TodoProvider(props) {
   const [allgames, setAllGames] = useState([]);
   const [countProducts, setCountProducts] = useState(0);
-  const [urlLocation, setUrlLocation] = useState("");
-
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api/games${urlLocation}`;
+  const [urlLocation, setUrlLocation] = useState('/games');
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api${urlLocation}`;
   const { data, uLoanding } = useFetch(url);
 
   const onAddGames = (product) => {
