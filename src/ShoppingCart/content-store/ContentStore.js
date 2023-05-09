@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./ContentStore.css";
 import { Loanding } from "../Loanding/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
+import { useFetch } from "../CustomHook/useFech";
 
 function ContentStore() {
-  const { onAddGames, data, uLoanding, setUrlLocation } =
+  const { onAddGames} =
     React.useContext(GameContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-
-  useEffect(() => {
-    setUrlLocation(location.pathname + location.search);
-  }, [location]);
+   const url = `games${location.search}`;
+   const { data, uLoanding } = useFetch(url);
 
 
   const redirectGame = (id) => {

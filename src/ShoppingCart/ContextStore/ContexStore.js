@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useFetch } from "../CustomHook/useFech";
 
 const GameContext = React.createContext();
 
 function TodoProvider(props) {
   const [allgames, setAllGames] = useState([]);
   const [countProducts, setCountProducts] = useState(0);
-  const [urlLocation, setUrlLocation] = useState('/games');
-  const url = `https://free-to-play-games-database.p.rapidapi.com/api${urlLocation}`;
-  const { data, uLoanding } = useFetch(url);
+ 
 
   const onAddGames = (product) => {
     setCountProducts(allgames.length + 1);
@@ -36,9 +33,6 @@ function TodoProvider(props) {
         countProducts,
         setCountProducts,
         onAddGames,
-        data,
-        uLoanding,
-        setUrlLocation,
       }}
     >
       {props.children}

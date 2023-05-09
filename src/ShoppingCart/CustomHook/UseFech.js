@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
-export function useFetch(url) {
+export function useFetch(prop) {
   const [data, setData] = useState([]);
   const [uLoanding, setLoanding] = useState(true);
+  const url = `https://free-to-play-games-database.p.rapidapi.com/api/${prop}`;
   const options = {
     method: "GET",
     headers: {
@@ -11,7 +12,7 @@ export function useFetch(url) {
       "X-RapidAPI-Host": "free-to-play-games-database.p.rapidapi.com",
     },
   };
-  
+
   useEffect(() => {
     setLoanding(true);
     setTimeout(() => {
