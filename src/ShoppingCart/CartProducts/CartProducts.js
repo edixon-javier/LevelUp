@@ -1,16 +1,19 @@
 import React from "react";
 import "./CarProducts.css";
 import { GameContext } from "../ContextStore/ContexStore";
+import _ from "lodash";
+import { useNavigate } from "react-router-dom";
 
 function CartProducts() {
-  const { allgames, setAllGames, setCountProducts } = React.useContext(GameContext)
- 
+  const { allgames, setAllGames, setCountProducts, onAddGames, skimProducts } =
+    React.useContext(GameContext);
+
   const deleteGame = (id) => {
     const gameIndex = allgames.findIndex((todo) => todo.id === id);
     const newGame = [...allgames];
     newGame.splice(gameIndex, 1);
     setAllGames(newGame);
-    setCountProducts(allgames.length - 1);
+    setCountProducts(_.sum(newGame.map((item) => item.quantity)));
   };
 
   const deleteProducts = () => {
@@ -24,32 +27,54 @@ function CartProducts() {
     0
   );
 
-  const uLoanding = false;
+  const navigate = useNavigate();
+
+  const redirectGame = () => {
+    navigate("/games");
+  };
+
   return (
-    <div className="containerCart">
-      {uLoanding ? (
-        <h2>No tienes productos en el carrito</h2>
+    <div>
+      {allgames.length === 0 ? (
+        <div className="empty">
+          <h3>Your cart is empty</h3>
+          <p>Add a game and enjoy new adventures!</p>
+          <button onClick={redirectGame}>buy a game</button>
+        </div>
       ) : (
         allgames.map((item) => {
           return (
             <div className="carts" key={item.id}>
-              <p>Cantidad: {item.quantity} </p>
+              <div>
+                <button onClick={() => onAddGames(item)}>➕</button>
+                <p>Quantity: {item.quantity} </p>
+                <button
+                  onClick={() =>
+                    item.quantity === 1
+                      ? deleteGame(item.id)
+                      : skimProducts(item)
+                  }
+                >
+                  ➖
+                </button>
+              </div>
               <img src={item.thumbnail} alt="no funciona" />
-              <p>
-              <p>{item.title}</p>
-               Description:  {item.short_description}
-                </p>
-              <p className="price">
-                <p>Price:</p>
-                ${item.id}
-                </p>
+              <span>
+                <p>{item.title}</p>
+                Description: {item.short_description}
+              </span>
+              <span className="price">
+                <p>Price:</p>$ {item.id * item.quantity}.00
+              </span>
               <button onClick={() => deleteGame(item.id)}>Delete</button>
             </div>
           );
         })
       )}
-      <button onClick={() => deleteProducts()}>Vaciar carrito</button>
-      <p>Total:${priceTotal}</p>
+      {allgames.length > 0 && (
+        <button onClick={() => deleteProducts()}>Empty cart</button>
+      )}
+      <p>{priceTotal === 0 ? "" : `Total: $ ${priceTotal}.00`}</p>
     </div>
   );
 }

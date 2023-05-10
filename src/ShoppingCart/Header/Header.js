@@ -12,7 +12,9 @@ function Header() {
           <Link to={"/games"}>Home</Link>
         </li>
         <li>
-          <Link to={"/shopping-cart"}>🛒{countProducts}</Link>
+          <Link to={"/shopping-cart"}>
+            🛒{countProducts === 0 ? "" : countProducts}
+          </Link>
         </li>
       </ul>
     </nav>

@@ -1,0 +1,35 @@
+.game {
+  display: flex;
+}
+
+.thumbanail {
+  padding-right: 35px;
+  padding-top: 30px;
+}
+
+.thumbanail img {
+  width: 350px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.thumbanail button {
+  width: 80%;
+}
+
+.content-game h1 {
+  text-align: start;
+}
+
+.images {
+  padding-bottom: 25px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.images img {
+  width: 340px;
+  border-radius: 10px;
+  height: 260px;
+}

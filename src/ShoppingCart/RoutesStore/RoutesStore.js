@@ -17,13 +17,10 @@ function RoutesStore() {
           <div className="content">
             <Sidebar />
             <Routes>
-              <Route path="/games" element={<ContentStore />}></Route>
+              <Route path="/" element={<ContentStore />}></Route>
               <Route path="/:id" element={<ContentStore />}></Route>
               <Route path="/shopping-cart" element={<CartProducts />}></Route>
-              <Route
-                path="/games/game"
-                element={<Game />}
-              ></Route>
+              <Route path="/games/game" element={<Game />}></Route>
               <Route path="*" element={<p>Esta pagina no existe</p>}></Route>
             </Routes>
           </div>

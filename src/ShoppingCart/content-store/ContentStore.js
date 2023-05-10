@@ -6,14 +6,12 @@ import { GameContext } from "../ContextStore/ContexStore";
 import { useFetch } from "../CustomHook/useFech";
 
 function ContentStore() {
-  const { onAddGames} =
-    React.useContext(GameContext);
+  const { onAddGames } = React.useContext(GameContext);
   const location = useLocation();
   const navigate = useNavigate();
 
-   const url = `games${location.search}`;
-   const { data, uLoanding } = useFetch(url);
-
+  const url = `games${location.search}`;
+  const { data, uLoanding } = useFetch(url);
 
   const redirectGame = (id) => {
     navigate(`game?id=${id}`);
@@ -43,7 +41,7 @@ function ContentStore() {
               );
             })
           ) : (
-            <h1>No existe</h1>
+            <h1>No podemos mostrate esta informacion</h1>
           )}
         </div>
       )}
