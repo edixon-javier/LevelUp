@@ -26,15 +26,21 @@ function ContentStore() {
           {data && data.length ? (
             data.map((resp) => {
               return (
-                <div className="clothing" key={resp.id}>
-                  <img
-                    onClick={() => redirectGame(resp.id)}
-                    src={resp.thumbnail}
-                    alt="no funciona"
-                  />
+                <div
+                  className="clothing"
+                  key={resp.id}
+                  onClick={() => redirectGame(resp.id)}
+                >
+                  <img src={resp.thumbnail} alt="no funciona" />
                   <p>{resp.title}</p>
                   <p>${resp.id}.00</p>
-                  <button onClick={() => onAddGames(resp)}>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onAddGames(resp);
+                    }}
+                  >
                     🛒 Add to cart
                   </button>
                 </div>

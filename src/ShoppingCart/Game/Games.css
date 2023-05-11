@@ -1,35 +1,43 @@
-.game {
-  display: flex;
+.Left-column,
+.right-column {
+  margin: 15px;
 }
 
-.thumbanail {
-  padding-right: 35px;
-  padding-top: 30px;
+.Left-column {
+  white-space: pre-line;
+  line-height: 1.6;
 }
 
-.thumbanail img {
-  width: 350px;
-  height: 300px;
-  border-radius: 10px;
+.Left-column img,
+.images img {
+  box-shadow: 3px 5px 8px 1px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
 }
 
-.thumbanail button {
-  width: 80%;
+.Left-column button {
+  width: 100%;
+  margin: 0;
 }
 
-.content-game h1 {
-  text-align: start;
+.right-column h1 {
+  text-align: center;
+}
+
+.right-column p {
+  white-space: pre-line;
+  line-height: 1;
+  padding-right: 10px;
 }
 
 .images {
-  padding-bottom: 25px;
-  padding-top: 15px;
   display: flex;
-  justify-content: space-evenly;
 }
 
 .images img {
-  width: 340px;
-  border-radius: 10px;
-  height: 260px;
+  width: 31%;
+  border-radius: 4px;
+  margin: 14px;
+  box-shadow: 3px 5px 8px 1px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0 rgba(0, 0, 0, 0.19);
 }

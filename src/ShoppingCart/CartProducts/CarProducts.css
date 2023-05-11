@@ -13,7 +13,8 @@
 
 .carts img {
   width: 75%;
-  padding: 6px 0px 6px 0px;
+  padding: 1px 0px 0px 0px;
+  border-radius: 5px;
 }
 
 .carts button {

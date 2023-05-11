@@ -12,6 +12,7 @@ function Game() {
 
   const url = `game${location.search}`;
   const { data, uLoanding } = useFetch(url);
+  console.log(data);
 
   return (
     <>
@@ -19,37 +20,36 @@ function Game() {
         <Loanding />
       ) : (
         <>
-          <div className="game">
-            <div className="thumbanail">
-              <img src={data.thumbnail} alt="game thumbnail" />
-              <p>{data.short_description}</p>
-              <p>Gender: {data.genre}</p>
-              <p>Platform: {data.platform}</p>
-              <p>Developer: {data.developer}</p>
-              <p>Game status: {data.status}</p>
-              <p>Price: ${data.id}.00</p>
-              <button onClick={() => onAddGames(data)}>🛒 Add to cart</button>
+          <section className="Left-column">
+            <img src={data.thumbnail} alt="game thumbnail" />
+            <h3>Additional information</h3>
+            <p>{data.short_description}</p>
+            <p>Gender: {data.genre}</p>
+            <p>Platform: {data.platform}</p>
+            <p>Developer: {data.developer}</p>
+            <p>Game status: {data.status}</p>
+            <p>Price: ${data.id}.00</p>
+            <button onClick={() => onAddGames(data)}>🛒 Add to cart</button>
+          </section>
+          <section className="right-column">
+            <h1>{data.title}</h1>
+            <p>{data.description}</p>
+            <h3>{data.title} Screenshots</h3>
+            <div className="images">
+              <img
+                src={data.screenshots[0].image}
+                alt="game thumbnail image1"
+              />
+              <img
+                src={data.screenshots[1].image}
+                alt="game thumbnail image2"
+              />
+              <img
+                src={data.screenshots[2].image}
+                alt="game thumbnail image3"
+              />
             </div>
-            <div className="content-game">
-              <h1>{data.title}</h1>
-              <p>{data.description}</p>
-
-              <div className="images">
-                <img
-                  src={data.screenshots[0].image}
-                  alt="game thumbnail image1"
-                />
-                <img
-                  src={data.screenshots[1].image}
-                  alt="game thumbnail image2"
-                />
-                <img
-                  src={data.screenshots[2].image}
-                  alt="game thumbnail image3"
-                />
-              </div>
-            </div>
-          </div>
+          </section>
         </>
       )}
     </>

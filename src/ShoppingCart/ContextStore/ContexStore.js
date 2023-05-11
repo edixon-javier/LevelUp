@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 
 const GameContext = React.createContext();
@@ -6,6 +6,11 @@ const GameContext = React.createContext();
 function TodoProvider(props) {
   const [allgames, setAllGames] = useState([]);
   const [countProducts, setCountProducts] = useState(0);
+
+  useEffect(() => {
+    setCountProducts(_.sum(allgames.map((value) => value.quantity)));
+  }, [allgames]);
+  
 
   const onAddGames = (product) => {
     const index = allgames.findIndex((item) => item.id === product.id);
@@ -19,7 +24,6 @@ function TodoProvider(props) {
       const updatedGames = allgames.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-      setCountProducts(_.sum(updatedGames.map((item) => item.quantity)));
       setAllGames(updatedGames);
     }
   };
@@ -38,7 +42,6 @@ function TodoProvider(props) {
         item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
       );
       setAllGames(updatedGames);
-      setCountProducts(_.sum(updatedGames.map((item) => item.quantity)));
     }
   };
 

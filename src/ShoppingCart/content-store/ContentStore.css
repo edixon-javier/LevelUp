@@ -1,23 +1,29 @@
 .container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  align-items: center;
   margin-left: 35px;
 }
 
 .clothing {
- border-radius: 3px;
-
+  border-radius: 3px;
   align-items: center;
   margin: 15px;
-  box-shadow: 1px 3px 15px 7px  rgba(0, 0, 0, 0.2),
+  box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 
 .clothing img {
- width: 100%;
- border-radius: 3px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.clothing:hover {
+  box-shadow: 1px 3px 15px 7px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0 rgba(0, 0, 0, 0.19);
+  margin: 5px;
+  cursor: pointer;
 }
 
 .clothing button {
