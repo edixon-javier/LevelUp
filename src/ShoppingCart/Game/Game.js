@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Loanding } from "../Loanding/Loading";
 import { useFetch } from "../CustomHook/useFech";
 import "./Games.css";
+import { Modal } from "../Modal/Modal";
 
 function Game() {
   const { onAddGames } = React.useContext(GameContext);
@@ -12,7 +13,6 @@ function Game() {
 
   const url = `game${location.search}`;
   const { data, uLoanding } = useFetch(url);
-  console.log(data);
 
   return (
     <>
@@ -50,6 +50,7 @@ function Game() {
               />
             </div>
           </section>
+          <Modal>correctly added</Modal>
         </>
       )}
     </>

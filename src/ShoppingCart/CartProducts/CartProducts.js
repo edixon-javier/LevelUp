@@ -3,12 +3,19 @@ import "./CarProducts.css";
 import { GameContext } from "../ContextStore/ContexStore";
 import _ from "lodash";
 import { useNavigate } from "react-router-dom";
+import { Modal } from "../Modal/Modal";
 
 function CartProducts() {
   const { allgames, setAllGames, setCountProducts, onAddGames, skimProducts } =
     React.useContext(GameContext);
 
   const deleteGame = (id) => {
+    const modal = document.querySelector(".ModalGames");
+    modal.classList.add("show");
+    setTimeout(() => {
+      modal.classList.remove("show");
+    }, 1000);
+
     const gameIndex = allgames.findIndex((todo) => todo.id === id);
     const newGame = [...allgames];
     newGame.splice(gameIndex, 1);
@@ -75,6 +82,7 @@ function CartProducts() {
         <button onClick={() => deleteProducts()}>Empty cart</button>
       )}
       <p>{priceTotal === 0 ? "" : `Total: $ ${priceTotal}.00`}</p>
+      <Modal>correctly deleted</Modal>
     </div>
   );
 }

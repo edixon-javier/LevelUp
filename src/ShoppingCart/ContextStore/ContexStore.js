@@ -10,9 +10,14 @@ function TodoProvider(props) {
   useEffect(() => {
     setCountProducts(_.sum(allgames.map((value) => value.quantity)));
   }, [allgames]);
-  
 
   const onAddGames = (product) => {
+    const modal = document.querySelector(".ModalGames");
+    modal.classList.add("show");
+    
+    setTimeout(() => {
+      modal.classList.remove("show");
+    }, 1000);
     const index = allgames.findIndex((item) => item.id === product.id);
     if (index === -1) {
       const newProduct = {

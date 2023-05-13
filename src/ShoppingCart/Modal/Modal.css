@@ -1,0 +1,20 @@
+.ModalGames {
+  background: #2ECC71;
+  position: fixed;
+  top: 88%;
+  left: 45%;
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+  box-shadow: 3px 5px 8px 1px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.ModalGames.show {
+  opacity: 1;
+}

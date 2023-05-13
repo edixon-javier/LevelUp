@@ -4,6 +4,7 @@ import { Loanding } from "../Loanding/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
 import { useFetch } from "../CustomHook/useFech";
+import { Modal } from "../Modal/Modal";
 
 function ContentStore() {
   const { onAddGames } = React.useContext(GameContext);
@@ -49,6 +50,7 @@ function ContentStore() {
           ) : (
             <h1>No podemos mostrate esta informacion</h1>
           )}
+          <Modal>Correctly added </Modal>
         </div>
       )}
     </>
