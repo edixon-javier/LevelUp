@@ -6,16 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "../Modal/Modal";
 
 function CartProducts() {
-  const { allgames, setAllGames, setCountProducts, onAddGames, skimProducts } =
-    React.useContext(GameContext);
+  const {
+    allgames,
+    setAllGames,
+    setCountProducts,
+    onAddGames,
+    skimProducts,
+    messageMododal,
+  } = React.useContext(GameContext);
 
   const deleteGame = (id) => {
-    const modal = document.querySelector(".ModalGames");
-    modal.classList.add("show");
-    setTimeout(() => {
-      modal.classList.remove("show");
-    }, 1000);
-
+    messageMododal("Delete product");
     const gameIndex = allgames.findIndex((todo) => todo.id === id);
     const newGame = [...allgames];
     newGame.splice(gameIndex, 1);
@@ -24,6 +25,7 @@ function CartProducts() {
   };
 
   const deleteProducts = () => {
+    messageMododal("Delete product");
     setCountProducts(0);
     setAllGames([]);
   };

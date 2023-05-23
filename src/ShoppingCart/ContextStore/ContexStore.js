@@ -12,12 +12,7 @@ function TodoProvider(props) {
   }, [allgames]);
 
   const onAddGames = (product) => {
-    const modal = document.querySelector(".ModalGames");
-    modal.classList.add("show");
-    
-    setTimeout(() => {
-      modal.classList.remove("show");
-    }, 1000);
+    messageMododal("Add Product");
     const index = allgames.findIndex((item) => item.id === product.id);
     if (index === -1) {
       const newProduct = {
@@ -34,8 +29,8 @@ function TodoProvider(props) {
   };
 
   const skimProducts = (product) => {
+    messageMododal("Delete product");
     const index = allgames.findIndex((item) => item.id === product.id);
-
     if (index === -1) {
       const newProduct = {
         ...product,
@@ -50,6 +45,16 @@ function TodoProvider(props) {
     }
   };
 
+  const messageMododal = (value) => {
+      const modal = document.querySelector(".ModalGames");
+      modal.textContent = value;
+      modal.classList.add("show");
+
+      setTimeout(() => {
+        modal.classList.remove("show");
+      }, 1000);
+  }
+
   return (
     <GameContext.Provider
       value={{
@@ -59,6 +64,7 @@ function TodoProvider(props) {
         setCountProducts,
         onAddGames,
         skimProducts,
+        messageMododal,
       }}
     >
       {props.children}
