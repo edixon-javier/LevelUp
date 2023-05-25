@@ -1,5 +1,3 @@
-.containerCart {
-}
 
 .carts {
   padding: 12px;
@@ -10,6 +8,14 @@
   box-shadow: 3px 5px 8px 1px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
+
+@media (max-width: 700px) {
+  .carts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 
 .carts img {
   width: 75%;

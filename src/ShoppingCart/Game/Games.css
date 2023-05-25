@@ -1,3 +1,28 @@
+.container-game {
+  display: flex;
+}
+
+@media (max-width: 920px) {
+  .container-game {
+    display: block;
+  }
+
+  .Left-column {
+    width: 100%;
+  }
+
+  .Left-column img,
+  .images img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .images {
+    flex-direction: column;
+  }
+}
+
 .Left-column,
 .right-column {
   margin: 15px;

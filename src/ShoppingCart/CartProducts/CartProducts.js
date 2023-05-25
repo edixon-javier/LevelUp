@@ -84,7 +84,7 @@ function CartProducts() {
         <button onClick={() => deleteProducts()}>Empty cart</button>
       )}
       <p>{priceTotal === 0 ? "" : `Total: $ ${priceTotal}.00`}</p>
-      <Modal>correctly deleted</Modal>
+      <Modal></Modal>
     </div>
   );
 }

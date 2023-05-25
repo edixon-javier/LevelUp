@@ -45,9 +45,9 @@ function TodoProvider(props) {
     }
   };
 
-  const messageMododal = (value) => {
+  const messageMododal = (message) => {
       const modal = document.querySelector(".ModalGames");
-      modal.textContent = value;
+      modal.textContent = message;
       modal.classList.add("show");
 
       setTimeout(() => {

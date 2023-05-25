@@ -19,7 +19,7 @@ function Game() {
       {uLoanding ? (
         <Loanding />
       ) : (
-        <>
+        <div className="container-game">
           <section className="Left-column">
             <img src={data.thumbnail} alt="game thumbnail" />
             <h3>Additional information</h3>
@@ -50,8 +50,8 @@ function Game() {
               />
             </div>
           </section>
-          <Modal>correctly added</Modal>
-        </>
+          <Modal></Modal>
+        </div>
       )}
     </>
   );

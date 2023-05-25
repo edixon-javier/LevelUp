@@ -50,7 +50,7 @@ function ContentStore() {
           ) : (
             <h1>No podemos mostrate esta informacion</h1>
           )}
-          <Modal> ✔️ Correctly added </Modal>
+          <Modal></Modal>
         </div>
       )}
     </>
