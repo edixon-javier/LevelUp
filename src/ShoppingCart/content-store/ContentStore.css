@@ -73,3 +73,10 @@
   line-height: 18px;
   font-weight: 400;
 }
+
+.empty {
+  position: absolute;
+  padding-top: 200px;
+  width: 80%;
+  text-align: center;
+}

@@ -1,9 +1,9 @@
 .ModalGames {
-  background: #72798b;
+  background: #2b3134;
   position: fixed;
   top: 86%;
   left: 47%;
-  width: 16%;
+  width: 13%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@
   opacity: 0;
   transition: opacity 0.9s ease;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .ModalGames.show {

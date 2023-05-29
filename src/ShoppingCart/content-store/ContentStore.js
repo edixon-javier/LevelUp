@@ -48,7 +48,10 @@ function ContentStore() {
               );
             })
           ) : (
-            <h1>No podemos mostrate esta informacion</h1>
+            <div className="empty">
+              <h3>We have a problem</h3>
+              <p>Please reload the page!</p>
+            </div>
           )}
           <Modal></Modal>
         </div>

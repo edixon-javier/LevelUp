@@ -54,7 +54,7 @@ function CartProducts() {
         allgames.map((item) => {
           return (
             <div className="carts" key={item.id}>
-              <div>
+              <div className="buttonQuantity">
                 <button onClick={() => onAddGames(item)}>➕</button>
                 <p>Quantity: {item.quantity} </p>
                 <button
@@ -83,7 +83,9 @@ function CartProducts() {
       {allgames.length > 0 && (
         <button onClick={() => deleteProducts()}>Empty cart</button>
       )}
-      <p>{priceTotal === 0 ? "" : `Total: $ ${priceTotal}.00`}</p>
+      <p className="totalPrice">
+        {priceTotal === 0 ? "" : `Total: $ ${priceTotal}.00`}
+      </p>
       <Modal></Modal>
     </div>
   );

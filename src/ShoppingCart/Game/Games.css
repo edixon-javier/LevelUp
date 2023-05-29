@@ -5,10 +5,11 @@
 @media (max-width: 920px) {
   .container-game {
     display: block;
+    width: 100%;
   }
 
   .Left-column {
-    width: 100%;
+    width: 90%;
   }
 
   .Left-column img,
@@ -17,11 +18,6 @@
   }
 }
 
-@media (max-width: 1180px) {
-  .images {
-    flex-direction: column;
-  }
-}
 
 .Left-column,
 .right-column {
