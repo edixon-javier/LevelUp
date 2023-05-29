@@ -14,6 +14,7 @@ function ContentStore() {
   const url = `games${location.search}`;
   const { data, uLoanding } = useFetch(url);
 
+
   const redirectGame = (id) => {
     navigate(`game?id=${id}`);
   };

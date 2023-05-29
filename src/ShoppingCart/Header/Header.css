@@ -5,3 +5,8 @@ ul {
   display: flex;
   justify-content: space-between;
 }
+
+.selected {
+  border-left-color: #f00;
+  background-color: #eef8ff;
+}

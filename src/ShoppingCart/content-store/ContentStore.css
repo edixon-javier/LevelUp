@@ -7,31 +7,27 @@
 }
 
 @media (max-width: 768px) {
-  .container{
+  .container {
     grid-template-columns: repeat(1, 1fr);
   }
-  /* Estilos para dispositivos móviles o pantallas pequeñas */
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .container{
+  .container {
     grid-template-columns: repeat(2, 1fr);
   }
-  /* Estilos para tablets */
 }
 
 @media (min-width: 1025px) {
-   .container{
+  .container {
     grid-template-columns: repeat(3, 1fr);
   }
-  /* Estilos para pantallas de escritorio */
 }
 
 @media (min-width: 1640px) {
-   .container{
+  .container {
     grid-template-columns: repeat(4, 1fr);
   }
-  /* Estilos para pantallas de escritorio */
 }
 
 .clothing {

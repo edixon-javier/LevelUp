@@ -27,5 +27,6 @@ a:hover {
 }
 
 .selected {
-  border-left-color: #f00;
+  border-left-color: #456dff;
+  background-color: #eef8ff;
 }

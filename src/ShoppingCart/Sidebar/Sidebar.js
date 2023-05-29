@@ -1,15 +1,23 @@
 import React from "react";
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Sidebar() {
+  const location = useLocation();
+  const url = location.pathname + location.search;
+
   return (
     <nav>
       <h4>Sort by category</h4>
       <ul>
         <li>
           {routes.map((route, index) => (
-            <Link key={index} to={route.to}>
+            <Link
+              key={index}
+              to={route.to}
+              className={url === route.to ? "selected" : ""}
+            >
               {route.text}
             </Link>
           ))}
@@ -18,19 +26,38 @@ function Sidebar() {
       <h4>lphabetical order</h4>
       <ul>
         <li>
-          <Link to={"/games?sort-by=alphabetical"}>alphabetica</Link>
+          <Link
+            to={"/games?sort-by=alphabetical"}
+            className={url === "/games?sort-by=alphabetical" ? "selected" : ""}
+          >
+            alphabetica
+          </Link>
         </li>
       </ul>
       <h4>By platform</h4>
       <ul>
         <li>
-          <Link to={"/games?platform=pc"}>Pc</Link>
+          <Link
+            to={"/games?platform=pc"}
+            className={url === "/games?platform=pc" ? "selected" : ""}
+          >
+            Pc
+          </Link>
         </li>
       </ul>
       <h4>Most popular</h4>
       <ul>
         <li>
-          <Link to={"/games?sort-by=player-count&sort-order=desc"}>List popular games</Link>
+          <Link
+            to={"/games?sort-by=player-count&sort-order=desc"}
+            className={
+              url === "/games?sort-by=player-count&sort-order=desc"
+                ? "selected"
+                : ""
+            }
+          >
+            List popular games
+          </Link>
         </li>
       </ul>
     </nav>
@@ -67,7 +94,5 @@ const routes = [
     text: "Sports",
   },
 ];
-
-
 
 export { Sidebar };
