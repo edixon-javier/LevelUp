@@ -17,7 +17,7 @@ function Modal({ NewTodo, CloseModal }) {
       });
       CloseModal();
     } else {
-      alert("Debes agregar un nuevo Todo");
+      alert("you must add a new task");
     }
   };
 
@@ -27,19 +27,21 @@ function Modal({ NewTodo, CloseModal }) {
 
   return ReactDOM.createPortal(
     <form className="ModalBackground">
-      <label>Agregar nueva tarea</label>
-      <textarea
-        value={newTodoValue}
-        onChange={onChange}
-        placeholder="Escribe tu nueva tarea."
-      />
-      <div className="TodoForm-buttonContainer">
-        <button type="button" onClick={closeModal}>
-          ❌
-        </button>
-        <button type="button" onClick={newElement}>
-          ✅
-        </button>
+      <div className="modal">
+        <label>Add new task</label>
+        <textarea
+          value={newTodoValue}
+          onChange={onChange}
+          placeholder="Write your new task..."
+        />
+        <div className="button-container">
+          <button type="button" onClick={closeModal}>
+            ❌
+          </button>
+          <button type="button" onClick={newElement}>
+            ✅
+          </button>
+        </div>
       </div>
     </form>,
     document.getElementById("modal")

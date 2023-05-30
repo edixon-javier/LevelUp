@@ -16,7 +16,10 @@ function TodoItem(props) {
         >
           ✓
         </span>
-        <p className={`${props.complete && "TodoItem-p--complete"}`}>
+        <p
+          onClick={props.onComplete}
+          className={`${props.complete && "TodoItem-p--complete"}`}
+        >
           {props.text}
         </p>
         <span onClick={props.onDelete} className="Icon Icon-delete">

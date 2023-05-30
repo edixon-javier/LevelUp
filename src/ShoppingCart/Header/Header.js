@@ -14,6 +14,11 @@ function Header() {
       <ul>
         <li>
           <Link to={"/games"} className={url === "/games" ? "selected" : ""}>
+            Tienda de video juegos
+          </Link>
+        </li>
+        <li>
+          <Link to={"/games"} className={url === "/games" ? "selected" : ""}>
             Home
           </Link>
         </li>

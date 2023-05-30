@@ -1,5 +1,5 @@
-.list-items{
-    width: 80%;
+.list-items {
+  width: 45%;
 }
 
 .App {
@@ -7,6 +7,17 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #dbdfe4;
+  background: #ffffff;
   flex-direction: column;
+}
+
+.App button {
+  background: white;
+  font-size: 46px;
+  transform: rotate(0);
+  transition: 0.3s ease;
+}
+
+.App button:hover {
+  transform: rotate(224deg);
 }

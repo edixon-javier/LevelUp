@@ -45,8 +45,8 @@ function TodoApp() {
     setTodos(newTodos);
   };
 
-  const NewTodo = (elemet) => {
-    setTodos([...todos, elemet]);
+  const NewTodo = (element) => {
+    setTodos([...todos, element]);
   };
 
   const CloseModal = () => {
@@ -55,9 +55,9 @@ function TodoApp() {
 
   return (
     <div className="App">
-      <h1>Lista de Tareas</h1>
+      <h1>List of tasks</h1>
       <h3>
-        Tienes {totalTodos} por completar y haz realizado {completedTodos}
+        You have {totalTodos} to complete and you have done {completedTodos}
       </h3>
       <div className="list-items">
         {todos.map((todo, index) => (

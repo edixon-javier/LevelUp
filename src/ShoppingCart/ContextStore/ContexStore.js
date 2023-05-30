@@ -12,7 +12,7 @@ function TodoProvider(props) {
   }, [allgames]);
 
   const onAddGames = (product) => {
-    messageMododal("Add Product");
+    messageMododal("Added product");
     const index = allgames.findIndex((item) => item.id === product.id);
     if (index === -1) {
       const newProduct = {
