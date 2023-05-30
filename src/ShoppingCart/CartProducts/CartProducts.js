@@ -67,7 +67,7 @@ function CartProducts() {
                   ➖
                 </button>
               </div>
-              <img src={item.thumbnail} alt="no funciona" />
+              <img src={item.thumbnail} alt="Does not work" />
               <span>
                 <p>{item.title}</p>
                 Description: {item.short_description}

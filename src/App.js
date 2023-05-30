@@ -1,29 +1,38 @@
-import './App.css';
+import "./App.css";
 import React, { useState } from "react";
-import { CarouselApi } from './CarouselApi';
-import { ShoppingCart } from './ShoppingCart';
-import { TodoApp } from './TodoApp';
-
+import { CarouselApi } from "./CarouselApi";
+import { ShoppingCart } from "./ShoppingCart";
+import { TodoApp } from "./TodoApp";
 
 function App() {
   const [activeC, setActiveC] = useState("ShoppingCart");
+  const [showHeader, setShowHeader] = useState(true);
 
-  const componentes = {
+  const components = {
     TodoApp: <TodoApp />,
     CarouselApi: <CarouselApi />,
     ShoppingCart: <ShoppingCart />,
   };
 
+  const toggleHeader = () => {
+    setShowHeader(!showHeader);
+  };
+
   return (
     <div>
-      <header>
-        <button onClick={() => setActiveC("TodoApp")}>Todo List</button>
-        <button onClick={() => setActiveC("CarouselApi")}>Carousel</button>
-        <button onClick={() => setActiveC("ShoppingCart")}>
+      <header className={showHeader ? "header-hidden" : ""}>
+        <button onClick={() => {setActiveC("TodoApp"); toggleHeader();}}>
+          Todo List
+        </button>
+        <button onClick={() => {setActiveC("CarouselApi"); toggleHeader();}}>Carousel</button>
+        <button onClick={() => {setActiveC("ShoppingCart"); toggleHeader();}}>
           Shopping Cart
         </button>
       </header>
-      <div>{componentes[activeC]}</div>
+      <button className="especial-button" onClick={() => toggleHeader()}>
+        🪅
+      </button>
+      <div>{components[activeC]}</div>
     </div>
   );
 }
