@@ -15,7 +15,6 @@ function RoutesStore() {
         <HashRouter>
           <Header />
           <div className="content">
-            <Sidebar />
             <Routes>
               <Route path="/" element={<ContentStore />}></Route>
               <Route path="/:id" element={<ContentStore />}></Route>
