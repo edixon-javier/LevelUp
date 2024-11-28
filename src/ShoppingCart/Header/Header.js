@@ -21,7 +21,7 @@ function Header() {
           <img
             src={whiteLogo}
             alt="Logo"
-            className="h-16 w-16"
+            className="h-16 w-16 bg-transparent"
             style={{ filter: "brightness(1.1)", mixBlendMode: "multiply" }}
           />
           <h1 className="text-lg font-bold">LevelUp</h1>
@@ -39,7 +39,7 @@ function Header() {
             </Link>
           </li>
 
-          <li className="relative">
+          <li className="relative z-20">
             <button
               onClick={toggleDropdown}
               className={`py-2 px-4 rounded   hover:bg-gray-300 transition " ${
@@ -87,37 +87,36 @@ function Header() {
               Alphabetical Order
             </Link>
           </li>
-
           <li>
             <Link
               to="/shopping-cart"
-              className={`relative py-2 px-4 rounded hover:bg-gray-300 transition ${
-                url === "/shopping-cart" ? "bg-gray-700" : ""
-              }`}
+              className={`relative py-2 px-4 rounded hover:bg-gray-300 transition focus:outline-none`}
             >
-              <svg
-                class="w-6 h-6 text-gray-800 dark"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
-                />
-              </svg>
+              <div className="relative inline-block">
+                <svg
+                  className="w-6 h-6 text-gray-800"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+                  />
+                </svg>
 
-              {countProducts > 0 && (
-                <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                  {countProducts}
-                </span>
-              )}
+                {countProducts > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-1 py-0.9 rounded-full shadow">
+                    {countProducts}
+                  </span>
+                )}
+              </div>
             </Link>
           </li>
         </ul>
