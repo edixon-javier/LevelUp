@@ -14,7 +14,6 @@ function RoutesStore() {
       {() => (
         <HashRouter>
           <Header />
-          <div className="content">
             <Routes>
               <Route path="/" element={<ContentStore />}></Route>
               <Route path="/:id" element={<ContentStore />}></Route>
@@ -22,7 +21,6 @@ function RoutesStore() {
               <Route path="/games/game" element={<Game />}></Route>
               <Route path="*" element={<p>Esta pagina no existe</p>}></Route>
             </Routes>
-          </div>
         </HashRouter>
       )}
     </GameContext.Consumer>
