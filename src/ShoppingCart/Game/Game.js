@@ -54,7 +54,7 @@ function Game() {
               className="mt-6 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 transition"
             >
               <svg
-                class="w-6 h-6 text-gray-50 dark"
+                className="w-6 h-6 text-gray-50 dark"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
@@ -64,9 +64,9 @@ function Game() {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                 />
               </svg>{" "}

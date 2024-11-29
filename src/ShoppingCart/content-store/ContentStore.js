@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
 import { useFetch } from "../CustomHook/useFech";
 import { Modal } from "../Modal/Modal";
-import { Link } from "react-router-dom";
+import NotFound from "../NotFound/NotFound";
 
 function ContentStore() {
   const { onAddGames } = React.useContext(GameContext);
@@ -14,8 +14,6 @@ function ContentStore() {
 
   const url = `games${location.search}`;
   const { data, uLoanding } = useFetch(url);
-
-  console.log(data);
 
   const redirectGame = (id) => {
     navigate(`game?id=${id}`);
@@ -52,7 +50,7 @@ function ContentStore() {
                           {resp.short_description}
                         </p>
                       </div>
-                      <a
+                      <button
                         onClick={(e) => {
                           e.stopPropagation();
                           onAddGames(resp);
@@ -61,7 +59,7 @@ function ContentStore() {
                       >
                         ${resp.id}.00
                         <svg
-                          class="w-6 h-6 text-gray-50 dark"
+                          className="w-6 h-6 text-gray-50 dark"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           width="23"
@@ -71,32 +69,20 @@ function ContentStore() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
                           />
                         </svg>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
               );
             })
           ) : (
-            <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-center">
-              <h1 className="text-6xl font-bold text-red-500">404</h1>
-              <p className="text-xl mt-4">Oops! Page not found.</p>
-              <p className="mt-2">
-                The page you're looking for doesn't exist or there was an error.
-              </p>
-              <Link
-                to="/"
-                className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400 transition"
-              >
-                Go Home
-              </Link>
-            </div>
+            <NotFound />
           )}
           <Modal></Modal>
         </div>

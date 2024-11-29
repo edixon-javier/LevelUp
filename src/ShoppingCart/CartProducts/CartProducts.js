@@ -67,7 +67,7 @@ function CartProducts() {
           </p>
           <button
             onClick={redirectGame}
-            className="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-500 transition"
+            className="mt-6 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 transition"
           >
             Browse Games
           </button>
@@ -109,7 +109,7 @@ function CartProducts() {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={2}
-                      strokeLinecap="round"
+                      strokeLinecap="round" 
                       strokeLinejoin="round"
                     >
                       <line x1="12" y1="5" x2="12" y2="19" />
