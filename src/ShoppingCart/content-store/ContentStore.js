@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { GameContext } from "../ContextStore/ContexStore";
 import { useFetch } from "../CustomHook/useFech";
 import { Modal } from "../Modal/Modal";
+import { Link } from "react-router-dom";
 
 function ContentStore() {
   const { onAddGames } = React.useContext(GameContext);
@@ -83,9 +84,18 @@ function ContentStore() {
               );
             })
           ) : (
-            <div className="empty">
-              <h3>We have a problem</h3>
-              <p>Please reload the page!</p>
+            <div className="flex flex-col items-center justify-center h-screen bg-gray-100 text-center">
+              <h1 className="text-6xl font-bold text-red-500">404</h1>
+              <p className="text-xl mt-4">Oops! Page not found.</p>
+              <p className="mt-2">
+                The page you're looking for doesn't exist or there was an error.
+              </p>
+              <Link
+                to="/"
+                className="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-400 transition"
+              >
+                Go Home
+              </Link>
             </div>
           )}
           <Modal></Modal>

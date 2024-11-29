@@ -35,52 +35,65 @@ function Header() {
         <div className="flex items-center space-x-6 text-base hidden md:flex">
           <Link
             to={"/games?sort-by=player-count&sort-order=desc"}
-            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${url === "/games?sort-by=player-count&sort-order=desc" ? "bg-gray-400" : ""}`}
+            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${
+              url === "/games?sort-by=player-count&sort-order=desc"
+                ? "bg-gray-400"
+                : ""
+            }`}
           >
             Most popular
           </Link>
           <div className="relative z-20">
-  <button
-    onClick={toggleDropdown}
-    className={`py-2 px-4 rounded hover:bg-gray-300 transition ${isDropdownOpen  || url.includes("category") ? "bg-gray-400" : ""}`}
-  >
-    Category
-  </button>
-  {isDropdownOpen && (
-    <ul className="absolute right-0 mt-2 bg-gray-50 rounded shadow-lg overflow-hidden">
-      {routesCategory.map((route, index) => (
-        <li key={index}>
-          <Link
-            to={route.to}
-            className={`block px-4 py-2 hover:bg-gray-300 ${url === route.to ? "bg-gray-400" : ""}`}
-            onClick={() => setIsDropdownOpen(false)} // Cerrar el menú cuando se hace clic
-          >
-            {route.text}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  )}
-</div>
-
+            <button
+              onClick={toggleDropdown}
+              className={`py-2 px-4 rounded hover:bg-gray-300 transition ${
+                isDropdownOpen || url.includes("category") ? "bg-gray-400" : ""
+              }`}
+            >
+              Category
+            </button>
+            {isDropdownOpen && (
+              <ul className="absolute right-0 mt-2 bg-gray-50 rounded shadow-lg overflow-hidden">
+                {routesCategory.map((route, index) => (
+                  <li key={index}>
+                    <Link
+                      to={route.to}
+                      className={`block px-4 py-2 hover:bg-gray-300 ${
+                        url === route.to ? "bg-gray-400" : ""
+                      }`}
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      {route.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <Link
             to={"/games?platform=pc"}
-            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${url === "/games?platform=pc" ? "bg-gray-400" : ""}`}
+            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${
+              url === "/games?platform=pc" ? "bg-gray-400" : ""
+            }`}
           >
             Platform
           </Link>
 
           <Link
             to={"/games?sort-by=alphabetical"}
-            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${url === "/games?sort-by=alphabetical" ? "bg-gray-400" : ""}`}
+            className={`py-2 px-4 rounded hover:bg-gray-300 transition ${
+              url === "/games?sort-by=alphabetical" ? "bg-gray-400" : ""
+            }`}
           >
             Alphabetical Order
           </Link>
 
           <Link
             to="/shopping-cart"
-            className={`"relative py-2 px-4 rounded hover:bg-gray-300 transition focus:outline-none" ${url === "/shopping-cart" ? "bg-gray-400" : ""}`}
+            className={`"relative py-2 px-4 rounded hover:bg-gray-300 transition focus:outline-none" ${
+              url === "/shopping-cart" ? "bg-gray-400" : ""
+            }`}
           >
             <div className="relative inline-block">
               <svg
@@ -110,10 +123,7 @@ function Header() {
           </Link>
         </div>
 
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-black"
-        >
+        <button onClick={toggleMenu} className="md:hidden text-black">
           <svg
             className="w-8 h-8"
             xmlns="http://www.w3.org/2000/svg"
